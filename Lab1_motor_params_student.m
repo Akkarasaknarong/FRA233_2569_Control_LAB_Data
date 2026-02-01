@@ -4,7 +4,6 @@ This script for prepare data and parameters for parameter estimator.
 2. Run this script.
 3. Follow parameter estimator instruction.
 %}
-cd Data_for_Estimation\
 
 % R and L from experiment
 motor_R = 1.00;
