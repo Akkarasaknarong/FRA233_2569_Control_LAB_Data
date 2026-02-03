@@ -2,8 +2,19 @@
 https://docs.google.com/spreadsheets/d/1YnXmOzDQ9pM9H3S1C0mhhm8Pv3uXedruE-_VNLvlNlY/edit?gid=386120609#gid=386120609
 
 # Work Process
-### MatLab
+## MatLab setting
+### Solver
 - set fix-step size -> 0.0002
+### Fix parameters
+- motor_R = 3.69;
+- motor_L = 0.04016;
+### Optimization's parameters
+- motor_Eff = 0.5;
+- motor_Ke = 0.05;
+- motor_J = 0.001;
+- motor_B = 0.0001;
+
+## Experiment setting
 ### Sinwave
 - Run : 30 sec
 - Block Parameter 
