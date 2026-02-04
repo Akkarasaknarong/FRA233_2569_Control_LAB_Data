@@ -1,6 +1,6 @@
 
 %% ================= LOAD FILE 1 =================
-f1 = load('Validation_Step_100_test_80_rec3.mat');
+f1 = load('Validation_Step_60_test_80_rec3.mat');
 d1 = f1.data;
 
 t1    = squeeze(d1{1}.Values.Time);
@@ -27,13 +27,13 @@ else
 end
 
 %% ================= PLOT ORIGINAL SIGNALS =================
-figure;
-plot(t1, velo1, 'b', 'LineWidth', 1.5); hold on;
-plot(t2, velo2, 'r', 'LineWidth', 1.5);
-title('Velocity Comparison');
-xlabel('Time (s)'); ylabel('Velocity');
-legend('Model','Real');
-grid on;
+%% figure;
+%% plot(t1, velo1, 'b', 'LineWidth', 1.5); hold on;
+%% plot(t2, velo2, 'r', 'LineWidth', 1.5);
+%% title('Velocity Comparison');
+%% xlabel('Time (s)'); ylabel('Velocity');
+%% legend('Model','Real');
+%% grid on;
 %% ================= TIME ALIGNMENT =================
 t_start = max(t1(1), t2(1));
 t_end   = min(t1(end), t2(end));
