@@ -14,17 +14,19 @@ This script for prepare data and parameters for parameter estimator.
 motor_R = 3.69;
 motor_L = 0.04016;
 % Optimization's parameters
-motor_Eff = 0.5;
-motor_Ke = 0.05;
-motor_J = 0.001;
-motor_B = 0.0001;
+motor_Eff = 0.991300;
+motor_Ke = 0.049366;
+motor_J = 0.000006;
+motor_B = 0.000010;
 
 % Extract collected data
-% Input_DATA = load("C:\Users\Akkarasaknarong\Documents\GitHub\LAB_Control_Data\Data_for_Estimation\Sinewave\Sinewave_1Hz_Rec1.mat") ;
-
 Input = squeeze(double(data{2}.Values.Data));
 Time = squeeze(data{1}.Values.Time);
 Velo = squeeze(double(data{1}.Values.Data));
+
+% For Validation
+validation_input = [Time, Input];
+validation_Velo = [Time, Velo];
 
 % Plot 
 % figure(Name='Motor velocity response')
