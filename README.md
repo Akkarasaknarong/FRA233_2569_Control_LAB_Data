@@ -49,12 +49,20 @@ https://docs.google.com/spreadsheets/d/1YnXmOzDQ9pM9H3S1C0mhhm8Pv3uXedruE-_VNLvl
     - Start Time : 2 Sec
 
 ### Stair
-- Run : 25 sec
 - Block Name : Stair Generator (Because have more type)
-- Block Parameter :
-    - Time : [1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20]
-    - Amplitude : [0 0.1 0 0.2 0 0.3 0 0.4 0 0.5 0 0.6 0 0.7 0 0.8 0 0.9 0 1]
-
+- Block Parameter : 
+    - Type : Stair Generator 0.25 Hz
+        - Time : [0.25 0.5 0.75 1 1.25 1.5 1.75 2 2.25 2.5 2.75 3 3.25 3.5 3.75 4 4.25 4.5 4.75 5]
+        - Amplitude : [0 0.1 0 0.2 0 0.3 0 0.4 0 0.5 0 0.6 0 0.7 0 0.8 0 0.9 0 1]
+    - Type : Stair Generator 0.5 Hz
+        - Time : [0.5 1 1.5 2 2.5 3 3.5 4 4.5 5 5.5 6 6.5 7 7.5 8 8.5 9 9.5 10]
+        - Amplitude : [0 0.1 0 0.2 0 0.3 0 0.4 0 0.5 0 0.6 0 0.7 0 0.8 0 0.9 0 1]
+     - Type : Stair Generator 0.75 Hz
+        - Time : [0.75 1.5 2.25 3 3.75 4.5 5.25 6 6.75 7.5 8.25 9 9.75 10.5 11.25 12 12.75 13.5 14.25 15]
+        - Amplitude : [0 0.1 0 0.2 0 0.3 0 0.4 0 0.5 0 0.6 0 0.7 0 0.8 0 0.9 0 1]
+     - Type : Stair Generator 1 Hz
+        - Time : [1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20]
+        - Amplitude : [0 0.1 0 0.2 0 0.3 0 0.4 0 0.5 0 0.6 0 0.7 0 0.8 0 0.9 0 1]
 ### Chirp
 - Run : 45 sec
 - Block Parameter :

@@ -14,19 +14,19 @@ This script for prepare data and parameters for parameter estimator.
 motor_R = 3.69;
 motor_L = 0.04016;
 % Optimization's parameters
-motor_Eff = 0.5;
-motor_Ke = 0.05;
-motor_J = 0.001;
-motor_B = 0.00011;
+motor_Eff = 0.99583;
+motor_Ke = 0.05066;
+motor_J = 0.0000104223;
+motor_B = 0.0000000830;
 
 % Extract collected data
-Input = squeeze(double(data{2}.Values.Data));
-Time = squeeze(data{1}.Values.Time);
-Velo = squeeze(double(data{1}.Values.Data));
+%Input = squeeze(double(data{2}.Values.Data));
+%Time = squeeze(data{1}.Values.Time);
+%Velo = squeeze(double(data{1}.Values.Data));
 
 % For Validation
-validation_input = [Time, Input];
-validation_Velo = [Time, Velo];
+% validation_input = [Time, Input];
+% validation_Velo = [Time, Velo];
 
 % Plot 
 % figure(Name='Motor velocity response')

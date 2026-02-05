@@ -16,16 +16,9 @@ motor_Ke = 0.050013;
 motor_J = 0.0000110153333;
 motor_B = 0.000025762333;
 
-fileCount = 3 ;
-RMSE_all     = zeros(fileCount,1);
-NRMSE_all    = zeros(fileCount,1);
-R2_all       = zeros(fileCount,1);
-ACC_all      = zeros(fileCount,1);
-
-
 %% ================= 1. LOAD MODEL (Reference) =================
 % ไฟล์ที่เป็น Main Reference (Model)
-modelFile = 'C:\Users\Akkarasaknarong\Documents\GitHub\LAB_Control_Data\Result_Validation\Stair\Validation_Stair_0.25_test_0.50_rec.mat';
+modelFile = 'C:\Users\Akkarasaknarong\Documents\GitHub\LAB_Control_Data\Result_Validation\Chirp\Validation_Chirp_Target_40_test_35.mat';
 f1 = load(modelFile);
 d1 = f1.data;
 
@@ -44,8 +37,8 @@ fprintf('Model Loaded: %s\n', modelFile);
 
 %% ================= 2. PREPARE LOOP FOR REAL FILES =================
 % กำหนด Path ของไฟล์ Real Data
-basePath = 'C:\Users\Akkarasaknarong\Documents\GitHub\LAB_Control_Data\Data_for_Estimation\Stair';
-filePrefix = 'Stair_0.5Hz_Rec'; % ส่วนต้นของชื่อไฟล์
+basePath = 'C:\Users\Akkarasaknarong\Documents\GitHub\LAB_Control_Data\Data_for_Estimation\Chirp';
+filePrefix = 'Chirp_Target35_Rec'; % ส่วนต้นของชื่อไฟล์
 fileCount = 3; % จำนวนไฟล์ (Rec1, Rec2, Rec3)
 
 % สร้าง Figure รอไว้
@@ -68,7 +61,7 @@ for i = 1:fileCount
     
     % Extract Real Data
     time2 = squeeze(d2{1}.Values.Time);
-    velo2 = squeeze(d2{1}.Values.Data);
+    velo2 = squeeze(d2{2}.Values.Data);
     
     % --- 3.2 Time Alignment (Interpolation) ---
     % หาช่วงเวลาที่ซ้อนทับกัน (Common Time)
@@ -97,11 +90,14 @@ for i = 1:fileCount
     
     R_sq = 1 - (SS_res / SS_tot);
     
-    RMSE_all(i)  = rms_velo;
-    NRMSE_all(i)= nrms_velo;
-    R2_all(i)   = R_sq;
-    ACC_all(i)  = R_sq * 100;
-
+    % --- 3.5 Display Results in Command Window ---
+    fprintf('\n==========================================\n');
+    fprintf(' PROCESSING FILE: %s\n', fileName);
+    fprintf('==========================================\n');
+    fprintf('RMS Error        = %.6f\n', rms_velo);
+    fprintf('NRMSE (%%)        = %.2f \n', nrms_velo);
+    fprintf('R-Squared        = %.4f\n', R_sq);
+    fprintf('Accuracy         = %.2f \n', R_sq * 100);
     
     % --- 3.6 Plot Graph (Subplot) ---
     subplot(fileCount, 1, i);
@@ -113,18 +109,5 @@ for i = 1:fileCount
     grid on;
     
 end
-
-fprintf('\nRMSE\n');
-fprintf('%.6f\n', RMSE_all);
-
-fprintf('\nNRMSE (%%)\n');
-fprintf('%.2f\n', NRMSE_all);
-
-fprintf('\nR-Squared\n');
-fprintf('%.4f\n', R2_all);
-
-fprintf('\nAccuracy\n');
-fprintf('%.2f\n', ACC_all);
-
 
 fprintf('\n=== ALL PROCESSES COMPLETED ===\n');
