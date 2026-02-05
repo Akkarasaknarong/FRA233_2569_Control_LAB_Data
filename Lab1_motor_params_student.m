@@ -11,6 +11,10 @@ This script for prepare data and parameters for parameter estimator.
 % motor_R = 3.69;
 % motor_L = 0.04016;
 
+data_1 = load('Sinewave_0.5Hz_Rec1.mat');
+data_2 = load('Sinewave_0.5Hz_Rec2.mat');
+data_3 = load('Sinewave_0.5Hz_Rec3.mat');
+
 motor_R = 3.69;
 motor_L = 0.04016;
 % Optimization's parameters
@@ -20,13 +24,18 @@ motor_J = 0.00000392460;
 motor_B = 0.0001688;
 
 % Extract collected data
-%Input = squeeze(double(data{2}.Values.Data));
-%Time = squeeze(data{1}.Values.Time);
-%Velo = squeeze(double(data{1}.Values.Data));
+Input_1 = squeeze(double(data_1.data{2}.Values.Data));
+Time_1 = squeeze(data_1.data{1}.Values.Time);
+Velo_1 = squeeze(double(data_1.data{1}.Values.Data));
 
-% For Validation
-% validation_input = [Time, Input];
-% validation_Velo = [Time, Velo];
+Input_2 = squeeze(double(data_2.data{2}.Values.Data));
+Time_2 = squeeze(data_2.data{1}.Values.Time);
+Velo_2 = squeeze(double(data_2.data{1}.Values.Data));
+
+Input_3 = squeeze(double(data_3.data{2}.Values.Data));
+Time_3 = squeeze(data_3.data{1}.Values.Time);
+Velo_3 = squeeze(double(data_3.data{1}.Values.Data));
+
 
 % Plot 
 % figure(Name='Motor velocity response')
