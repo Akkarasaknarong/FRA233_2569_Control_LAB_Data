@@ -1,11 +1,3 @@
-%{  
-    Script for comparing Model vs Multiple Real Data (Rec1, Rec2, Rec3)
-    1. Loads Model Data once.
-    2. Loops through Real Data files.
-    3. Aligns time, calculates RMS and R-Squared.
-    4. Plots comparison.
-%}
-
 clear; clc; close all;
 
 % ================= PARAMETERS =================
@@ -16,29 +8,13 @@ motor_Ke = 0.05161;
 motor_J = 0.00001;
 motor_B = 0.00000;
 
-%% ================= 1. LOAD MODEL (Reference) =================
-% ไฟล์ที่เป็น Main Reference (Model)
-modelFile = 'C:\Users\Akkarasaknarong\Documents\GitHub\LAB_Control_Data\Result_Validation\Ramp\Validation_Ramp_25_test_5_rec1.mat';
-f1 = load(modelFile);
-d1 = f1.data;
+% Model That Simulate with Parameter in Simulink "Lab1_parameter_estimation_student"
+f1 = load('Validation_Step_20_test_40_rec1');
+time1 = squeeze(f1.data{1}.Values.Time);
+velo1 = squeeze(f1.data{1}.Values.Data);
 
-% Extract Model Data
-time1 = squeeze(d1.Time);
-velo1 = squeeze(d1.Data);
-
-% Check input for Model
-if length(d1) >= 2
-    input1 = squeeze(d1{2}.Values.Data);
-else
-    input1 = zeros(size(velo1));
-end
-
-fprintf('Model Loaded: %s\n', 'sinewavemodel15Hzconverto1Hz.mat');
-
-%% ================= 2. PREPARE LOOP FOR REAL FILES =================
 % กำหนด Path ของไฟล์ Real Data
-basePath = 'C:\Users\Akkarasaknarong\Documents\GitHub\LAB_Control_Data\Data_for_Estimation\Ramp';
-filePrefix = 'Ramp_5Percent_Rec'; % ส่วนต้นของชื่อไฟล์
+filePrefix = 'Step_20Percent_Rec'; % ส่วนต้นของชื่อไฟล์
 fileCount = 3; % จำนวนไฟล์ (Rec1, Rec2, Rec3)
 
 % สร้าง Figure รอไว้

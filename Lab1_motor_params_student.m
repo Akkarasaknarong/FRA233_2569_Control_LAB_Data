@@ -14,10 +14,10 @@ This script for prepare data and parameters for parameter estimator.
 motor_R = 3.69;
 motor_L = 0.04016;
 % Optimization's parameters
-motor_Eff = 0.92135;
-motor_Ke = 0.04549666667;
-motor_J = 0.00006776866667;
-motor_B = 0.000046243;
+motor_Eff = 0.5;
+motor_Ke = 0.05;
+motor_J = 0.001;
+motor_B = 0.0001;
 
 % Extract collected data
 Input = squeeze(double(data{2}.Values.Data));
