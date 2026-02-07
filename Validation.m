@@ -24,7 +24,7 @@ ACC_all      = zeros(fileCount,1);
 
 %% ================= 1. LOAD MODEL (Reference) =================
 % ไฟล์ที่เป็น Main Reference (Model)
-modelFile = 'C:\Users\Akkarasaknarong\Documents\GitHub\LAB_Control_Data\Result_Validation\Versus\Sine_VS_Stair.mat';
+modelFile = 'C:\Users\Akkarasaknarong\Documents\GitHub\LAB_Control_Data\Result_Validation\Stair\Validation_Stair_1.00_test_0.75_rec.mat';
 f1 = load(modelFile);
 d1 = f1.data;
 
@@ -44,7 +44,7 @@ fprintf('Model Loaded: %s\n', modelFile);
 %% ================= 2. PREPARE LOOP FOR REAL FILES =================
 % กำหนด Path ของไฟล์ Real Data
 basePath = 'C:\Users\Akkarasaknarong\Documents\GitHub\LAB_Control_Data\Data_for_Estimation\Stair';
-filePrefix = 'Stair_1Hz_Rec'; % ส่วนต้นของชื่อไฟล์
+filePrefix = 'Stair_0.75Hz_Rec'; % ส่วนต้นของชื่อไฟล์
 fileCount = 3; % จำนวนไฟล์ (Rec1, Rec2, Rec3)
 
 % สร้าง Figure รอไว้
